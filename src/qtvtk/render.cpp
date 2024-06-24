@@ -29,7 +29,6 @@ Renderer::~Renderer() { close(); };
 void Renderer::setup(bool addAxes) {
   renderer = vtkSmartPointer<vtkRenderer>::New();
   renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
-  // renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
 
   renderWindow->SetWindowName("QTVTK Viewer");
   renderWindow->AddRenderer(renderer);
@@ -40,19 +39,7 @@ void Renderer::setup(bool addAxes) {
     renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
     widget = vtkSmartPointer<vtkOrientationMarkerWidget>::New();
     renderWindowInteractor->SetRenderWindow(renderWindow);
-    // Prepare renderer scene
-    // prepareScene();
   }
-  // if (addAxes)
-  // {
-  //     this->widget = vtkSmartPointer<vtkOrientationMarkerWidget>::New();
-  //     renderWindowInteractor->SetRenderWindow(renderWindow);
-  //     // Prepare renderer scene
-  //     prepareScene();
-  // }
-  // else
-  // {
-  // }
 }
 
 void Renderer::removeActors() { this->renderer->RemoveAllViewProps(); }
@@ -70,53 +57,5 @@ void Renderer::close() {
   if (renderWindowInteractor) {
     renderWindowInteractor->TerminateApp();
   }
-  // // Clean up vtkOrientationMarkerWidget
-  // if (widget)
-  // {
-  //     widget->SetEnabled(false);
-  //     // widget->SetInteractor(nullptr);
-  //     // widget->Delete();
-  //     // widget = nullptr;
-  // }
-
-  // // Clean up vtkRenderWindowInteractor
-  // if (renderWindowInteractor)
-  // {
-  //     renderWindowInteractor->SetRenderWindow(nullptr);  // Ensure interactor
-  //     is detached from render window renderWindowInteractor->TerminateApp();
-  //     // renderWindowInteractor->Delete();
-  //     renderWindowInteractor = nullptr;
-  // }
-
-  // // Clean up vtkRenderWindow
-  // if (renderWindow)
-  // {
-  //     renderWindow->Finalize();
-  //     renderWindow->SetInteractor(nullptr);  // Ensure render window is
-  //     detached from interactor
-  //     // renderWindow->Delete();
-  //     renderWindow = nullptr;
-  // }
-
-  // // Clean up vtkRenderer
-  // if (renderer)
-  // {
-  //     renderer->RemoveAllViewProps();
-  //     // renderer->Delete();
-  //     renderer = nullptr;
-  // }
-  // // renderer->RemoveAllViewProps();
-  // // renderWindow->Finalize();
-  // // renderWindow = nullptr;
-
-  // // if (renderWindowInteractor)
-  // // {
-  // //     // renderWindowInteractor->TerminateApp();
-  // //     // renderWindowInteractor->SetRenderWindow(nullptr);  // Ensure
-  // interactor is detached from render window
-  // //     renderWindowInteractor->TerminateApp();
-  // //     // renderWindowInteractor->Delete();
-  // //     renderWindowInteractor = nullptr;
-  // // }
 }
 } // namespace qtvtk::render
