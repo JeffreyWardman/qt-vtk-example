@@ -1,0 +1,15 @@
+{
+  "debug.inlineValues": "on",
+  "editor.defaultFormatter": "xaver.clang-format",
+  "editor.formatOnSave": true,
+  "git.autofetch": true,
+
+  "C_Cpp.default.compilerPath": "/usr/bin/g++",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "C_Cpp.clang_format_path": "${workspaceFolder}/.clang-format",
+  "C_Cpp.codeAnalysis.clangTidy.path": "${workspaceFolder}/.clang-tidy",
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+
+  "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+  "cmake.configureOnOpen": true
+}
